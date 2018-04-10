@@ -1,0 +1,23 @@
+{
+  "extends": [
+    "google",
+    "plugin:react/recommended"
+  ],
+  "parser": "babel-eslint",
+  "plugins": [
+    "react"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+        "jsx": true,
+        "modules": true
+    }
+  },
+  "rules": {
+    "object-curly-spacing": ["error", "always"],
+    "no-tabs": 0,
+    "max-len": ["error", {
+      "code": 90
+    }]
+  }
+}
