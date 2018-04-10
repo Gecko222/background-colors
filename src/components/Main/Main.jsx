@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { map } from 'lodash';
 
 import './main.css';
 
@@ -59,15 +60,27 @@ class Main extends Component {
      */
 	_renderContent() {
 		return <Fragment>
-			<AutoComplete />
+			<AutoComplete items={this._getItems()} />
 			<AcceptButton />
 		</Fragment>;
+	}
+
+	/**
+	 * get items list
+	 * @return {Object[]}
+	 */
+	_getItems() {
+		return map(this.props.colors, color => color.name);
 	}
 
 	static propTypes = {
 		fetchColors: PropTypes.func.isRequired,
 		fetched: PropTypes.bool.isRequired,
 		fetchError: PropTypes.bool.isRequired,
+		colors: PropTypes.PropTypes.arrayOf(PropTypes.shape({
+			name: PropTypes.string,
+			hes: PropTypes.string,
+		})),
 	}
 }
 
@@ -75,6 +88,7 @@ const mapStateToProps = ({ appState }, props) => {
 	return {
 		fetched: appState.fetched,
 		fetchError: appState.fetchError,
+		colors: appState.colors || [],
 	};
 };
 
