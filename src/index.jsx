@@ -11,7 +11,11 @@ import Main from './components/Main/Main';
 
 const store = createStore(reducers,
 	{
-		appState: {},
+		appState: {
+			fetched: false,
+			fetchError: false,
+			colors: [],
+		},
 	},
 	(process.env.NODE_ENV !== 'production' ?
 		window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() :

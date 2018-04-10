@@ -1,9 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import './main.css';
 
 import AcceptButton from '../AcceptButton/AcceptButton';
 import AutoComplete from '../AutoComplete/AutoComplete';
+import { fetchColors } from '../../actions/colors';
 
 /**
  * main component
@@ -16,11 +19,71 @@ class Main extends Component {
 	render() {
 		return (
 			<div className="content">
-				<AutoComplete />
-				<AcceptButton />
+				{
+					this.props.fetched ?
+						this.props.fetchError ? this._renderError() :
+							this._renderContent() :
+						this._renderWait()
+				}
 			</div>
 		);
 	}
+
+	/**
+     * component did mount.
+     * fetch colors from source
+     */
+	componentDidMount() {
+		this.props.fetchColors();
+	}
+
+	/**
+     * render wait information
+     * @return {ReactElement}
+     */
+	_renderWait() {
+		return <div>Loading data, please wait...</div>;
+	}
+
+	/**
+     * render error information
+     * @return {ReactElement}
+     */
+	_renderError() {
+		return <div>Failed to get data, please try again later.</div>;
+	}
+
+	/**
+     * render app content
+     * @return {ReactFragment}
+     */
+	_renderContent() {
+		return <Fragment>
+			<AutoComplete />
+			<AcceptButton />
+		</Fragment>;
+	}
+
+	static propTypes = {
+		fetchColors: PropTypes.func.isRequired,
+		fetched: PropTypes.bool.isRequired,
+		fetchError: PropTypes.bool.isRequired,
+	}
 }
 
-export default Main;
+const mapStateToProps = ({ appState }, props) => {
+	return {
+		fetched: appState.fetched,
+		fetchError: appState.fetchError,
+	};
+};
+
+const mapDispatchToProps = dispatch => {
+	return {
+		fetchColors: () => {
+			fetchColors(dispatch);
+		},
+	};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Main);

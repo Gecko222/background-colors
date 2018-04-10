@@ -3,4 +3,6 @@
 	margin: 5px;
 }
 
-.auto-complete-field {}
+.auto-complete-field {
+	border: 1px solid #000;
+}
