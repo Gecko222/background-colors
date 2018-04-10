@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 
+import './main.css';
+
+import AcceptButton from '../AcceptButton/AcceptButton';
+import AutoComplete from '../AutoComplete/AutoComplete';
+
 /**
  * main component
  */
@@ -9,7 +14,12 @@ class Main extends Component {
      * @return {ReactElement}
      */
 	render() {
-		return <h1>Hello, world!</h1>;
+		return (
+			<div className="content">
+				<AutoComplete />
+				<AcceptButton />
+			</div>
+		);
 	}
 }
 
