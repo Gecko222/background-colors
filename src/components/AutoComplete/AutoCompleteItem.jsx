@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 class AutoCompleteItem extends Component {
 	/**
 	 * render
+	 * @return {ReactElement}
 	 */
 	render() {
 		const { text, onItemClick } = this.props;
@@ -17,12 +18,12 @@ class AutoCompleteItem extends Component {
 			onMouseDown={ e => onItemClick && onItemClick(e) }
 		>
 			{ text }
-		</div>
+		</div>;
 	}
 
 	static propTypes = {
 		text: PropTypes.string.isRequired,
-		onItemClick: PropTypes.func
+		onItemClick: PropTypes.func,
 	}
 }
 

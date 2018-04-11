@@ -1,6 +1,7 @@
 import {
 	COLOR_FETCH_SUCCESS,
 	COLOR_FETCH_FAIL,
+	INPUT_CHANGE,
 } from '../actions/action-types';
 
 const appReducer = (state = {}, action) => {
@@ -16,6 +17,11 @@ const appReducer = (state = {}, action) => {
 				...state,
 				fetched: true,
 				fetchError: true,
+			};
+		case INPUT_CHANGE:
+			return {
+				...state,
+				input: action.input,
 			};
 		default:
 			return state;

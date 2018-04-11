@@ -8,6 +8,7 @@ import './main.css';
 import AcceptButton from '../AcceptButton/AcceptButton';
 import AutoComplete from '../AutoComplete/AutoComplete';
 import { fetchColors } from '../../actions/colors';
+import { changeInput } from '../../actions/input';
 
 /**
  * main component
@@ -60,7 +61,10 @@ class Main extends Component {
      */
 	_renderContent() {
 		return <Fragment>
-			<AutoComplete items={this._getItems()} />
+			<AutoComplete
+				items={this._getItems()}
+				onInputChange = { event => this._onInputChange(event) }
+			/>
 			<AcceptButton />
 		</Fragment>;
 	}
@@ -73,11 +77,20 @@ class Main extends Component {
 		return map(this.props.colors, color => color.name);
 	}
 
+	/**
+	 * on autocomplete input change
+	 * @param {string} input
+	 */
+	_onInputChange(input) {
+		this.props.changeInput(input);
+	}
+
 	static propTypes = {
 		fetchColors: PropTypes.func.isRequired,
+		changeInput: PropTypes.func.isRequired,
 		fetched: PropTypes.bool.isRequired,
 		fetchError: PropTypes.bool.isRequired,
-		colors: PropTypes.PropTypes.arrayOf(PropTypes.shape({
+		colors: PropTypes.arrayOf(PropTypes.shape({
 			name: PropTypes.string,
 			hes: PropTypes.string,
 		})),
@@ -94,9 +107,8 @@ const mapStateToProps = ({ appState }, props) => {
 
 const mapDispatchToProps = dispatch => {
 	return {
-		fetchColors: () => {
-			fetchColors(dispatch);
-		},
+		fetchColors: () => fetchColors(dispatch),
+		changeInput: input => dispatch(changeInput(input)),
 	};
 };
 

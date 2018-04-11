@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { map } from 'lodash';
+import { map, filter } from 'lodash';
 
 import './auto-complete.css';
 
@@ -26,20 +26,10 @@ class AutoComplete extends Component {
 	}
 
 	/**
-	 *
+	 * component did mount
 	 */
 	componentDidMount() {
-		this.setState({
-			items: map(
-				this.props.items,
-				item =>
-					<AutoCompleteItem
-						key={item}
-						text={item}
-						onItemClick={ event => this._onItemClick(event) }
-					/>
-			),
-		});
+		this._createItems(this.props.items);
 	}
 
 	/**
@@ -65,6 +55,7 @@ class AutoComplete extends Component {
 			onFocus={ () => this._onFocus() }
 			onBlur={ () => this._onBlur() }
 			ref={ this.input }
+			onChange={ event => this._onInputChange(event.target.value) }
 		/>;
 	}
 
@@ -96,27 +87,62 @@ class AutoComplete extends Component {
 	 * @return {ReactElement}
 	 */
 	_renderList() {
-		return <div
-			className="auto-complete-list"
-		>
+		return <div	className="auto-complete-list">
 			{ this.state.items }
 		</div>;
 	}
 
 	/**
 	 * on item click
-	 * @param {Event} event
+	 * @param {string} itemValue
 	 */
-	_onItemClick(event) {
+	_onItemClick(itemValue) {
 		this.setState({
 			itemClicked: true,
 		});
 
-		// input value
+		this.input.current.value = itemValue;
+		this._onInputChange(itemValue);
+	}
+
+	/**
+	 * on input change
+	 * @param {string} input
+	 */
+	_onInputChange(input) {
+		if (input.length >= 2) {
+			this._createItems(filter(
+				this.props.items,
+				item => item.includes(input)
+			));
+		} else {
+			this._createItems(this.props.items);
+		}
+
+		this.props.onInputChange && this.props.onInputChange(input);
+	}
+
+	/**
+	 * create items
+	 * @param {string[]} itemsList
+	 */
+	_createItems(itemsList) {
+		this.setState({
+			items: map(
+				itemsList,
+				item =>
+					<AutoCompleteItem
+						key={item}
+						text={item}
+						onItemClick={ () => this._onItemClick(item) }
+					/>
+			),
+		});
 	}
 
 	static propTypes = {
-		items: PropTypes.PropTypes.arrayOf(PropTypes.string),
+		items: PropTypes.arrayOf(PropTypes.string),
+		onInputChange: PropTypes.func,
 	}
 }
 
