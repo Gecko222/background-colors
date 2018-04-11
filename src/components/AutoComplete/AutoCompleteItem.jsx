@@ -10,12 +10,15 @@ class AutoCompleteItem extends Component {
 	 * @return {ReactElement}
 	 */
 	render() {
-		const { text, onItemClick } = this.props;
+		const { text, onItemClick, onMouseEnter } = this.props;
+		const selected = this.props.selected ? 'auto-complete-item-selected' : '';
 
 		return <div
-			className="auto-complete-item"
+			className={`auto-complete-item ${selected}`}
 			key={ text }
 			onMouseDown={ e => onItemClick && onItemClick(e) }
+			onMouseEnter={ e => onMouseEnter && onMouseEnter(e) }
+			ref= { item => this.props.divRef && this.props.divRef(item) }
 		>
 			{ text }
 		</div>;
@@ -24,6 +27,9 @@ class AutoCompleteItem extends Component {
 	static propTypes = {
 		text: PropTypes.string.isRequired,
 		onItemClick: PropTypes.func,
+		selected: PropTypes.bool,
+		onMouseEnter: PropTypes.func,
+		divRef: PropTypes.func,
 	}
 }
 

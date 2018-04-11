@@ -5,6 +5,7 @@ import { map, filter } from 'lodash';
 import './auto-complete.css';
 
 import AutoCompleteItem from './AutoCompleteItem';
+import keyActions from './key-actions';
 
 /**
  * Auto complete field
@@ -18,20 +19,14 @@ class AutoComplete extends Component {
 		super(props);
 
 		this.input = React.createRef();
+		this.itemsRefs = {};
 		this.state = {
 			focused: false,
 			itemClicked: false,
-			items: [],
+			selected: 0,
+			inputValue: '',
 		};
 	}
-
-	/**
-	 * component did mount
-	 */
-	componentDidMount() {
-		this._createItems(this.props.items);
-	}
-
 	/**
 	 * render
 	 * @return {ReactElement}
@@ -46,6 +41,15 @@ class AutoComplete extends Component {
 	}
 
 	/**
+	 * component did update
+	 * @param {object} prevProps
+	 * @param {object} prevState
+	 */
+	componentDidUpdate(prevProps, prevState) {
+		this._updateListView();
+	}
+
+	/**
 	 * return input field
 	 * @return {ReactElement}
 	 */
@@ -55,7 +59,9 @@ class AutoComplete extends Component {
 			onFocus={ () => this._onFocus() }
 			onBlur={ () => this._onBlur() }
 			ref={ this.input }
+			value={this.state.inputValue}
 			onChange={ event => this._onInputChange(event.target.value) }
+			onKeyDown={ event => this._onKeyDown(event) }
 		/>;
 	}
 
@@ -87,8 +93,11 @@ class AutoComplete extends Component {
 	 * @return {ReactElement}
 	 */
 	_renderList() {
-		return <div	className="auto-complete-list">
-			{ this.state.items }
+		return <div
+			className="auto-complete-list"
+			ref={ this.itemsList }
+		>
+			{ this._getItems() }
 		</div>;
 	}
 
@@ -101,7 +110,6 @@ class AutoComplete extends Component {
 			itemClicked: true,
 		});
 
-		this.input.current.value = itemValue;
 		this._onInputChange(itemValue);
 	}
 
@@ -110,34 +118,92 @@ class AutoComplete extends Component {
 	 * @param {string} input
 	 */
 	_onInputChange(input) {
-		if (input.length >= 2) {
-			this._createItems(filter(
-				this.props.items,
-				item => item.includes(input)
-			));
-		} else {
-			this._createItems(this.props.items);
-		}
+		this.setState({
+			inputValue: input,
+		});
 
 		this.props.onInputChange && this.props.onInputChange(input);
 	}
 
 	/**
+	 * get items
+	 * @return {AutoCompleteItem[]}
+	 */
+	_getItems() {
+		const { inputValue } = this.state;
+
+		if (inputValue.length >= 2) {
+			return this._createItems(this._getFilteredColors(inputValue));
+		}
+
+		return this._createItems(this.props.items);
+	}
+
+	/**
+	 * get filtered items
+	 * @param {string} inputValue
+	 * @return {string[]}
+	 */
+	_getFilteredColors(inputValue) {
+		return filter(
+			this.props.items,
+			item => item.includes(inputValue)
+		);
+	}
+
+	/**
 	 * create items
 	 * @param {string[]} itemsList
+	 * @return {AutoCompleteItem[]}
 	 */
 	_createItems(itemsList) {
+		return map(
+			itemsList,
+			(item, key) =>
+				<AutoCompleteItem
+					key={key}
+					text={item}
+					selected={this.state.selected == key}
+					onItemClick={ () => this._onItemClick(item) }
+					onMouseEnter={ () => this._selectItem(key) }
+					divRef={ item => this.itemsRefs[key] = item }
+				/>
+		);
+	}
+
+	/**
+	 * change selected item
+	 * @param {number} key
+	 */
+	_selectItem(key) {
 		this.setState({
-			items: map(
-				itemsList,
-				item =>
-					<AutoCompleteItem
-						key={item}
-						text={item}
-						onItemClick={ () => this._onItemClick(item) }
-					/>
-			),
+			selected: key,
 		});
+	}
+
+	/**
+	 * update list view
+	 */
+	_updateListView() {
+		const itemRef = this.itemsRefs[this.state.selected];
+
+		if (!itemRef) {
+			return;
+		}
+
+		if (itemRef.scrollIntoViewIfNeeded) {
+			itemRef.scrollIntoViewIfNeeded();
+		} else {
+			itemRef.scrollIntoView();
+		}
+	}
+
+	/**
+	 *
+	 * @param {Event} event
+	 */
+	_onKeyDown(event) {
+		keyActions[event.key] && keyActions[event.key].call(this, event);
 	}
 
 	static propTypes = {

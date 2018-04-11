@@ -21,6 +21,6 @@
 .auto-complete-item {
 	cursor: default;
 }
-.auto-complete-item:hover {
-	 background-color: lightgray;
+.auto-complete-item-selected {
+	background-color: lightgray;
 }
