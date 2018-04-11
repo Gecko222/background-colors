@@ -6,9 +6,8 @@ import { map } from 'lodash';
 import './main.css';
 
 import AcceptButton from '../AcceptButton/AcceptButton';
-import AutoComplete from '../AutoComplete/AutoComplete';
+import Autocomplete from '../AutoComplete/Autocomplete';
 import { fetchColors } from '../../actions/colors';
-import { changeInput } from '../../actions/input';
 
 /**
  * main component
@@ -61,10 +60,7 @@ class Main extends Component {
      */
 	_renderContent() {
 		return <Fragment>
-			<AutoComplete
-				items={this._getItems()}
-				onInputChange = { event => this._onInputChange(event) }
-			/>
+			<Autocomplete items={this._getItems()} />
 			<AcceptButton />
 		</Fragment>;
 	}
@@ -77,17 +73,8 @@ class Main extends Component {
 		return map(this.props.colors, color => color.name);
 	}
 
-	/**
-	 * on autocomplete input change
-	 * @param {string} input
-	 */
-	_onInputChange(input) {
-		this.props.changeInput(input);
-	}
-
 	static propTypes = {
 		fetchColors: PropTypes.func.isRequired,
-		changeInput: PropTypes.func.isRequired,
 		fetched: PropTypes.bool.isRequired,
 		fetchError: PropTypes.bool.isRequired,
 		colors: PropTypes.arrayOf(PropTypes.shape({
@@ -108,7 +95,6 @@ const mapStateToProps = ({ appState }, props) => {
 const mapDispatchToProps = dispatch => {
 	return {
 		fetchColors: () => fetchColors(dispatch),
-		changeInput: input => dispatch(changeInput(input)),
 	};
 };
 

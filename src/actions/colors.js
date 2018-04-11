@@ -9,7 +9,8 @@ export const fetchColors = dispatch => {
 			response => response.json(),
 			error => dispatch(fetchColorsFailed())
 		)
-		.then(data => dispatch(fetchColorsSuccess(data)));
+		.then(data => dispatch(fetchColorsSuccess(data)))
+		.catch(erro => dispatch(fetchColorsFailed()));
 };
 
 const fetchColorsFailed = () => ({

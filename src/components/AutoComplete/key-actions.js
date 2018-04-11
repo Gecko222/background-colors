@@ -1,26 +1,23 @@
-import { findIndex } from 'lodash';
+import { findIndex, filter } from 'lodash';
 
 /**
  * arrow down event
  * @param {Event} event
  */
 const ArrowDown = function(event) {
-	const { inputValue } = this.state;
-	const colors = this._getFilteredColors(inputValue);
+	const { filteredItems, selected } = this.props;
 
-	if (!colors || !colors.length) {
+	if (!filteredItems || !filteredItems.length) {
 		return;
 	}
 
-	let index = this.state.selected + 1;
+	let index = selected + 1;
 
-	if (index >= colors.length) {
+	if (index >= filteredItems.length) {
 		index--;
 	}
 
-	this.setState({
-		selected: index,
-	});
+	this.props.selectItem(index);
 };
 
 /**
@@ -28,22 +25,19 @@ const ArrowDown = function(event) {
  * @param {Event} event
  */
 const ArrowUp = function(event) {
-	const { inputValue } = this.state;
-	const colors = this._getFilteredColors(inputValue);
+	const { filteredItems, selected } = this.props;
 
-	if (!colors || !colors.length) {
+	if (!filteredItems || !filteredItems.length) {
 		return;
 	}
 
-	let index = this.state.selected - 1;
+	let index = selected - 1;
 
 	if (index < 0) {
 		index++;
 	}
 
-	this.setState({
-		selected: index,
-	});
+	this.props.selectItem(index);
 };
 
 /**
@@ -52,23 +46,25 @@ const ArrowUp = function(event) {
  */
 const Enter = function(event) {
 	event.preventDefault();
-	const { inputValue, selected } = this.state;
-	const color = this._getFilteredColors(inputValue)[selected];
+
+	const { filteredItems, selected } = this.props;
+	const color = filteredItems[selected];
 
 	if (!color) {
 		return;
 	}
 
-	this._onInputChange(color);
+	this.props.changeInput(color);
 
 	const selectedIndex = findIndex(
-		this._getFilteredColors(color),
+		filter(
+			filteredItems,
+			item => item.includes(color)
+		),
 		item => item === color
 	);
 
-	this.setState({
-		selected: selectedIndex,
-	});
+	this.props.selectItem(selectedIndex);
 };
 
 export default {

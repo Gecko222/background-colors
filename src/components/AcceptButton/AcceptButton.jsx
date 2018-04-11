@@ -68,10 +68,10 @@ class AcceptButton extends Component {
 	}
 }
 
-const mapStateToProps = ({ appState }, props) => {
+const mapStateToProps = ({ appState, autocomplete: { input } }, props) => {
 	return {
 		colors: appState.colors,
-		input: appState.input,
+		input,
 	};
 };
 
