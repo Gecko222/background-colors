@@ -10,25 +10,29 @@ import {
 	AC_SELECT_ITEM,
 } from '../actions/action-types';
 
+const getFilteredItems = (state, action) => {
+	let items = filteredItems = state.items.concat();
+	let filteredItems = [];
+
+	if (action.input.length >= 2) {
+		filteredItems = filter(
+			items,
+			item => item.includes(action.input)
+		);
+	} else {
+		filteredItems = items;
+	}
+
+	return filteredItems;
+};
+
 const autocompleteReducer = (state = {}, action) => {
 	switch (action.type) {
 		case AC_INPUT_CHANGE:
-			let items = filteredItems = state.items.concat();
-			let filteredItems = [];
-
-			if (action.input.length >= 2) {
-				filteredItems = filter(
-					items,
-					item => item.includes(action.input)
-				);
-			} else {
-				filteredItems = items;
-			}
-
 			return {
 				...state,
 				input: action.input,
-				filteredItems,
+				filteredItems: getFilteredItems(state, action),
 			};
 		case AC_SET_ITEMS:
 			return {
@@ -50,6 +54,7 @@ const autocompleteReducer = (state = {}, action) => {
 				...state,
 				clicked: true,
 				input: action.input,
+				filteredItems: getFilteredItems(state, action),
 			};
 		case AC_CLICK_ITEM_DONE:
 			return {
