@@ -11,7 +11,7 @@ import {
 /**
  * Auto complete suggest list
  */
-class AutocompleteSuggest extends Component {
+export class AutocompleteSuggestedList extends Component {
 	/**
 	 * constructor
 	 * @param {object} props
@@ -45,7 +45,7 @@ class AutocompleteSuggest extends Component {
 		this._updateListView();
 	}
 
-		/**
+	/**
 	 * get items
 	 * @return {AutoCompleteItem[]}
 	 */
@@ -81,7 +81,7 @@ class AutocompleteSuggest extends Component {
 
 		if (itemRef.scrollIntoViewIfNeeded) {
 			itemRef.scrollIntoViewIfNeeded();
-		} else {
+		} else if (itemRef.scrollIntoView) {
 			itemRef.scrollIntoView();
 		}
 	}
@@ -109,9 +109,8 @@ const mapDispatchToProps = dispatch => {
 	return {
 		selectItem: itemKey => dispatch(selectItem(itemKey)),
 		clickItem: value => dispatch(clickItem(value)),
-		setItems: items => dispatch(setItems(items)),
 	};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(AutocompleteSuggest);
+export default connect(mapStateToProps, mapDispatchToProps)(AutocompleteSuggestedList);
 

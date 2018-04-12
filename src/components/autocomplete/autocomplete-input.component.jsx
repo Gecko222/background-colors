@@ -13,7 +13,7 @@ import * as keyActions from './key-actions';
 /**
  * Auto complete field
  */
-class AutocompleteInput extends Component {
+export class AutocompleteInput extends Component {
 	/**
 	 * constructor
 	 * @param {object} props

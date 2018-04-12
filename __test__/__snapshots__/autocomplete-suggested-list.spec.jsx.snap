@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>>AutocompleteSuggestedList --- Snapshot +++capturing Snapshot of AutocompleteSuggestedList 1`] = `null`;
+
+exports[`>>>AutocompleteSuggestedList --- Snapshot +++capturing Snapshot of AutocompleteSuggestedList on focus 1`] = `
+<div
+  className="auto-complete-list"
+>
+  <div
+    className="auto-complete-item auto-complete-item-selected"
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+  >
+    Test
+  </div>
+  <div
+    className="auto-complete-item "
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+  >
+    Test2
+  </div>
+</div>
+`;

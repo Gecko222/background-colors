@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>>Autocomplete --- Snapshot +++capturing Snapshot of AutocompleteInput 1`] = `
+<div
+  className="auto-complete-wrapper"
+>
+  <input
+    className="auto-complete-field"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    value=""
+  />
+</div>
+`;

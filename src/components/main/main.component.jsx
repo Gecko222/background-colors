@@ -12,7 +12,7 @@ import { fetchColors } from '../../actions/colors.action';
 /**
  * main component
  */
-class Main extends Component {
+export class Main extends Component {
 	/**
 	 * render
 	 * @return {ReactElement}

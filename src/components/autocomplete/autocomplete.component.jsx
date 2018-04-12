@@ -4,18 +4,17 @@ import { connect } from 'react-redux';
 
 import './autocomplete.css';
 
-import AutocompleteSuggest from './autocomplete-suggest.component';
+import AutocompleteSuggestedList from './autocomplete-suggested-list.component';
 import AutocompleteInput from './autocomplete-input.component';
 import {
 	setItems,
 	setFilteredItems,
-	selectItem,
 } from '../../actions/autocomplete.action';
 
 /**
  * Auto complete field
  */
-class Autocomplete extends Component {
+export class Autocomplete extends Component {
 	/**
 	 * component did mount
 	 * @param {object} props
@@ -37,9 +36,9 @@ class Autocomplete extends Component {
 	 * @return {ReactElement}
 	 */
 	render() {
-		return <div	className="auto-complete-wrapper">
+		return <div className="auto-complete-wrapper">
 			<AutocompleteInput />
-			<AutocompleteSuggest />
+			<AutocompleteSuggestedList />
 		</div>;
 	}
 
@@ -58,7 +57,6 @@ const mapDispatchToProps = dispatch => {
 	return {
 		setItems: items => dispatch(setItems(items)),
 		setFilteredItems: items => dispatch(setFilteredItems(items)),
-		selectItem: itemKey => dispatch(selectItem(itemKey)),
 	};
 };
 

@@ -48,7 +48,7 @@ describe('>>>ACTION --- colors', () => {
 	it('+++ fetchColors fail', done => {
 		fetch.mockRejectOnce();
 
-		fetchColors(e => store.dispatch(e))
+		fetchColors(store.dispatch)
 			.then(results => {
 				expect(dispatchSpy.calledWith({
 					type: COLOR_FETCH_FAIL,

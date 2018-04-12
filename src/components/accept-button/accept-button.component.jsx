@@ -8,7 +8,7 @@ import './accept-button.css';
 /**
  * Accept button
  */
-class AcceptButton extends Component {
+export class AcceptButton extends Component {
 	/**
 	 * render
 	 * @return {ReactElement}

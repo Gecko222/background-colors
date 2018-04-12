@@ -2,7 +2,7 @@
   "name": "background-colors",
   "version": "1.0.0",
   "description": "",
-  "license" : "MIT",
+  "license": "ISC",
   "scripts": {
     "start": "webpack-dev-server --open --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
@@ -10,7 +10,6 @@
     "lint": "eslint ./src"
   },
   "author": "",
-  "license": "ISC",
   "dependencies": {
     "lodash": "^4.17.5",
     "react": "^16.3.1",
