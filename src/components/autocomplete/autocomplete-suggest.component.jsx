@@ -6,7 +6,7 @@ import { map } from 'lodash';
 import {
 	selectItem,
 	clickItem,
-} from '../../actions/autocomplete';
+} from '../../actions/autocomplete.action';
 
 /**
  * Auto complete suggest list

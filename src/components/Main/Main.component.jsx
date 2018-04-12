@@ -5,18 +5,18 @@ import { map } from 'lodash';
 
 import './main.css';
 
-import AcceptButton from '../AcceptButton/AcceptButton';
-import Autocomplete from '../AutoComplete/Autocomplete';
-import { fetchColors } from '../../actions/colors';
+import AcceptButton from '../accept-button/accept-button.component';
+import Autocomplete from '../autocomplete/autocomplete.component';
+import { fetchColors } from '../../actions/colors.action';
 
 /**
  * main component
  */
 class Main extends Component {
 	/**
-     * render
-     * @return {ReactElement}
-     */
+	 * render
+	 * @return {ReactElement}
+	 */
 	render() {
 		return (
 			<div className="content">
@@ -31,33 +31,33 @@ class Main extends Component {
 	}
 
 	/**
-     * component did mount.
-     * fetch colors from source
-     */
+	 * component did mount.
+	 * fetch colors from source
+	 */
 	componentDidMount() {
 		this.props.fetchColors();
 	}
 
 	/**
-     * render wait information
-     * @return {ReactElement}
-     */
+	 * render wait information
+	 * @return {ReactElement}
+	 */
 	_renderWait() {
 		return <div>Loading data, please wait...</div>;
 	}
 
 	/**
-     * render error information
-     * @return {ReactElement}
-     */
+	 * render error information
+	 * @return {ReactElement}
+	 */
 	_renderError() {
 		return <div>Failed to get data, please try again later.</div>;
 	}
 
 	/**
-     * render app content
-     * @return {ReactFragment}
-     */
+	 * render app content
+	 * @return {ReactFragment}
+	 */
 	_renderContent() {
 		return <Fragment>
 			<Autocomplete items={this._getItems()} />

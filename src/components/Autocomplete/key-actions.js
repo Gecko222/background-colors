@@ -4,7 +4,7 @@ import { findIndex, filter } from 'lodash';
  * arrow down event
  * @param {Event} event
  */
-const ArrowDown = function(event) {
+export const ArrowDown = function(event) {
 	const { filteredItems, selected } = this.props;
 
 	if (!filteredItems || !filteredItems.length) {
@@ -24,7 +24,7 @@ const ArrowDown = function(event) {
  * arrow up event
  * @param {Event} event
  */
-const ArrowUp = function(event) {
+export const ArrowUp = function(event) {
 	const { filteredItems, selected } = this.props;
 
 	if (!filteredItems || !filteredItems.length) {
@@ -44,7 +44,7 @@ const ArrowUp = function(event) {
  * enter event
  * @param {Event} event
  */
-const Enter = function(event) {
+export const Enter = function(event) {
 	event.preventDefault();
 
 	const { filteredItems, selected } = this.props;
@@ -65,10 +65,4 @@ const Enter = function(event) {
 	);
 
 	this.props.selectItem(selectedIndex);
-};
-
-export default {
-	ArrowDown,
-	ArrowUp,
-	Enter,
 };

@@ -7,7 +7,7 @@ import Adapter from 'enzyme-adapter-react-16';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-import AcceptButton from '../src/components/AcceptButton/AcceptButton';
+import AcceptButton from '../src/components/accept-button/accept-button.component';
 
 describe('>>>AcceptButton --- Snapshot', () => {
 	const initialState = {
@@ -28,7 +28,6 @@ describe('>>>AcceptButton --- Snapshot', () => {
 
 		expect(renderedValue).toMatchSnapshot();
 	});
-
 });
 
 describe('>>>AcceptButton', () => {
@@ -41,19 +40,21 @@ describe('>>>AcceptButton', () => {
 				fetchError: false,
 				colors: [{
 					name: 'Test',
-					hex: 'fff'
+					hex: 'fff',
 				}],
 			},
 			autocomplete: {
-				input: 'Test'
+				input: 'Test',
 			},
 		};
 
-		const store = mockStore(initialState)
-		const wrapper = mount( <Provider store={store}><AcceptButton /></Provider> )
+		const store = mockStore(initialState);
+		const wrapper = mount( <Provider store={store}><AcceptButton /></Provider> );
 
 		wrapper.find('.accept-button').simulate('click');
-		expect(document.getElementsByTagName('body')[0].style.backgroundColor).toBe('rgba(255, 255, 255, 0.5)');
+
+		expect(document.getElementsByTagName('body')[0].style.backgroundColor)
+			.toBe('rgba(255, 255, 255, 0.5)');
 	});
 
 	it('it shouldn\'t change body background color', () => {
@@ -63,17 +64,19 @@ describe('>>>AcceptButton', () => {
 				fetchError: false,
 				colors: [{
 					name: 'Test',
-					hex: '000'
+					hex: '000',
 				}],
 			},
 			autocomplete: {
-				input: 'DifrentTest'
+				input: 'DifrentTest',
 			},
 		};
-		const store = mockStore(initialState)
-		const wrapper = mount( <Provider store={store}><AcceptButton /></Provider> )
+		const store = mockStore(initialState);
+		const wrapper = mount( <Provider store={store}><AcceptButton /></Provider> );
 
 		wrapper.find('.accept-button').simulate('click');
-		expect(document.getElementsByTagName('body')[0].style.backgroundColor).toBe('rgba(255, 255, 255, 0.5)');
+
+		expect(document.getElementsByTagName('body')[0].style.backgroundColor)
+			.toBe('rgba(255, 255, 255, 0.5)');
 	});
 });

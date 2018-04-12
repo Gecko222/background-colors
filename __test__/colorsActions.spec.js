@@ -3,7 +3,7 @@ import sinon from 'sinon';
 
 global.fetch = require('jest-fetch-mock');
 
-import { fetchColors } from '../src/actions/colors';
+import { fetchColors } from '../src/actions/colors.action';
 import { COLOR_FETCH_SUCCESS, COLOR_FETCH_FAIL } from '../src/actions/action-types';
 
 

@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import './auto-complete.css';
+import './autocomplete.css';
 
-import AutocompleteSuggest from './AutocompleteSuggest';
-import AutocompleteInput from './AutocompleteInput';
+import AutocompleteSuggest from './autocomplete-suggest.component';
+import AutocompleteInput from './autocomplete-input.component';
 import {
 	setItems,
 	setFilteredItems,
 	selectItem,
-} from '../../actions/autocomplete';
+} from '../../actions/autocomplete.action';
 
 /**
  * Auto complete field
@@ -63,5 +63,3 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Autocomplete);
-
-

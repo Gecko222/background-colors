@@ -15,7 +15,7 @@ import {
 	clickItem,
 	clickItemDone,
 	selectItem,
-} from '../src/actions/autocomplete';
+} from '../src/actions/autocomplete.action';
 
 describe('>>>ACTION --- autocomplete', () => {
 	it('+++ actionCreator changeInput', () => {

@@ -9,7 +9,7 @@ Enzyme.configure({ adapter: new Adapter() });
 
 global.fetch = require('jest-fetch-mock');
 
-import Main from '../src/components/Main/Main';
+import Main from '../src/components/main/main.component';
 
 // Snapshot for Home React Component
 describe('>>>Main --- Snapshot', () => {

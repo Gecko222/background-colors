@@ -4,10 +4,9 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
 import './index.html';
-import './index.css';
 
 import reducers from './reducers';
-import Main from './components/Main/Main';
+import Main from './components/main/main.component';
 
 const store = createStore(reducers,
 	{

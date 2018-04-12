@@ -7,8 +7,8 @@ import {
 	setFocus,
 	clickItemDone,
 	selectItem,
-} from '../../actions/autocomplete';
-import keyActions from './key-actions';
+} from '../../actions/autocomplete.action';
+import * as keyActions from './key-actions';
 
 /**
  * Auto complete field

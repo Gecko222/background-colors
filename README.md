@@ -7,17 +7,31 @@ Node.js, npm
 ## Installation
 
 ```
-> npm install
+> yarn install
 ```
 
-## Build application
+## Build application for production
 
 ```
-> npm run build
+> yarn run build
 ```
 
 ## Development
 
+### Webpack dev server
+
 ```
-> npm run
+> yarn start
+```
+
+### Tests
+
+```
+> yarn test
+```
+
+### Eslint
+
+```
+> yarn lint
 ```
