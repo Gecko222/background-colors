@@ -37,7 +37,6 @@ class AutocompleteInput extends Component {
 			value={this.props.input}
 			onChange={ event => this._onChange(event) }
 			onKeyDown={ event => this._onKeyDown(event) }
-
 		/>;
 	}
 	/**
@@ -63,14 +62,13 @@ class AutocompleteInput extends Component {
 	 */
 	_onBlur() {
 		if (this.props.clicked) {
-			this.props.clickItemDone()
+			this.props.clickItemDone();
 			this.input.current.focus();
 
 			return;
 		}
 
 		this.props.setFocus(false);
-
 	}
 
 	/**

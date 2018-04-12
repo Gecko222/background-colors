@@ -54,7 +54,7 @@ describe('>>>AcceptButton', () => {
 		wrapper.find('.accept-button').simulate('click');
 
 		expect(document.getElementsByTagName('body')[0].style.backgroundColor)
-			.toBe('rgba(255, 255, 255, 0.5)');
+		.toBe('rgba(255, 255, 255, 0.5)');
 	});
 
 	it('it shouldn\'t change body background color', () => {
@@ -77,6 +77,6 @@ describe('>>>AcceptButton', () => {
 		wrapper.find('.accept-button').simulate('click');
 
 		expect(document.getElementsByTagName('body')[0].style.backgroundColor)
-			.toBe('rgba(255, 255, 255, 0.5)');
+		.toBe('rgba(255, 255, 255, 0.5)');
 	});
 });
