@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { find } from 'lodash';
+import find from 'lodash/find';
 
 import './accept-button.css';
 
@@ -16,7 +16,7 @@ export class AcceptButton extends Component {
 	render() {
 		return <button
 			className="accept-button"
-			onClick={ () => this._onClick() }
+			onClick={() => this._onClick()}
 		>
 			Accept
 		</button>;

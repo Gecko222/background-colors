@@ -1,4 +1,4 @@
-import { filter } from 'lodash';
+import filter from 'lodash/filter';
 
 import {
 	AC_INPUT_CHANGE,

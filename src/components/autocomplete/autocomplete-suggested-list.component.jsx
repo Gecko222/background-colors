@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { map } from 'lodash';
+import map from 'lodash/map';
 
 import {
 	selectItem,
@@ -12,15 +12,7 @@ import {
  * Auto complete suggest list
  */
 export class AutocompleteSuggestedList extends Component {
-	/**
-	 * constructor
-	 * @param {object} props
-	 */
-	constructor(props) {
-		super(props);
-
-		this.itemsRefs = {};
-	}
+	itemsRefs = {};
 
 	/**
 	 * render
@@ -58,10 +50,10 @@ export class AutocompleteSuggestedList extends Component {
 
 				return <div
 					className={`auto-complete-item ${selected}`}
-					key={ key }
-					onMouseDown={ () => this.props.clickItem(item) }
-					onMouseEnter={ () => this.props.selectItem(key) }
-					ref= { item => this.itemsRefs[key] = item }
+					key={key}
+					onMouseDown={() => this.props.clickItem(item)}
+					onMouseEnter={() => this.props.selectItem(key)}
+					ref= {item => this.itemsRefs[key] = item}
 				>
 					{ item }
 				</div>;

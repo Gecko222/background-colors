@@ -14,15 +14,7 @@ import * as keyActions from './key-actions';
  * Auto complete field
  */
 export class AutocompleteInput extends Component {
-	/**
-	 * constructor
-	 * @param {object} props
-	 */
-	constructor(props) {
-		super(props);
-
-		this.input = React.createRef();
-	}
+	input = React.createRef();
 
 	/**
 	 * render
@@ -31,12 +23,12 @@ export class AutocompleteInput extends Component {
 	render() {
 		return <input
 			className="auto-complete-field"
-			onFocus={ () => this._onFocus() }
-			onBlur={ () => this._onBlur() }
-			ref={ this.input }
+			onFocus={() => this._onFocus()}
+			onBlur={() => this._onBlur()}
+			ref={this.input}
 			value={this.props.input}
-			onChange={ event => this._onChange(event) }
-			onKeyDown={ event => this._onKeyDown(event) }
+			onChange={event => this._onChange(event)}
+			onKeyDown={event => this._onKeyDown(event)}
 		/>;
 	}
 	/**
