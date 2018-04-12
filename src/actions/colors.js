@@ -4,7 +4,7 @@ import {
 } from './action-types';
 
 export const fetchColors = dispatch => {
-	fetch('http://www.mocky.io/v2/5a37a7403200000f10eb6a2d')
+	return fetch('http://www.mocky.io/v2/5a37a7403200000f10eb6a2d')
 		.then(
 			response => response.json(),
 			error => dispatch(fetchColorsFailed())

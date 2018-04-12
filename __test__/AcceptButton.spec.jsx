@@ -32,6 +32,8 @@ describe('>>>AcceptButton --- Snapshot', () => {
 });
 
 describe('>>>AcceptButton', () => {
+	const mockStore = configureStore();
+
 	it('it should change body background color', () => {
 		const initialState = {
 			appState: {
@@ -46,7 +48,7 @@ describe('>>>AcceptButton', () => {
 				input: 'Test'
 			},
 		};
-		const mockStore = configureStore()
+
 		const store = mockStore(initialState)
 		const wrapper = mount( <Provider store={store}><AcceptButton /></Provider> )
 
@@ -68,7 +70,6 @@ describe('>>>AcceptButton', () => {
 				input: 'DifrentTest'
 			},
 		};
-		const mockStore = configureStore()
 		const store = mockStore(initialState)
 		const wrapper = mount( <Provider store={store}><AcceptButton /></Provider> )
 
