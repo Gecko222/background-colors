@@ -1,8 +1,8 @@
 # Background Colors
 
 
-![apm](https://img.shields.io/apm/l/vim-mode.svg)
-![Travis](https://img.shields.io/travis/Gecko222/background-colors.svg)
+[![apm](https://img.shields.io/apm/l/vim-mode.svg)](https://github.com/Gecko222/background-colors)
+[![Build Status](https://travis-ci.org/Gecko222/background-colors.svg?branch=master)](https://travis-ci.org/Gecko222/background-colors)
 
 ## Demo
 
@@ -10,7 +10,7 @@
 
 ## Requirements
 
-Node.js, npm
+Node.js, yarn
 
 ## Installation
 
