@@ -1,5 +1,10 @@
 # Background Colors
 
+
+![apm](https://img.shields.io/apm/l/vim-mode.svg)
+![Travis](https://img.shields.io/travis/Gecko222/background-colors.svg)
+
+
 ## Requirements
 
 Node.js, npm
