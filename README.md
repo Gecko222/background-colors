@@ -4,7 +4,7 @@
 [![license:mit](https://img.shields.io/apm/l/vim-mode.svg)](https://github.com/Gecko222/background-colors)
 [![Build Status](https://travis-ci.org/Gecko222/background-colors.svg?branch=master)](https://travis-ci.org/Gecko222/background-colors)
 
-## Demo (from ./dist)
+## Demo
 
 [Background Colors Demo](https://gecko222.github.io/background-colors/dist/)
 
