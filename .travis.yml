@@ -2,6 +2,8 @@ warnings_are_errors: false
 language: node_js
 node_js:
   - "node"
+before_deploy:
+  - yarn build
 deploy:
   provider: pages
   skip-cleanup: true
