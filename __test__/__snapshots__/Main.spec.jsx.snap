@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>>Main --- Snapshot +++capturing Snapshot of Main 1`] = `
+<div
+  className="content"
+>
+  <div
+    className="autocomplete-wrapper"
+  >
+    <input
+      className="autocomplete-field"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      value=""
+    />
+  </div>
+  <button
+    className="accept-button"
+    onClick={[Function]}
+  >
+    Accept
+  </button>
+</div>
+`;
+
+exports[`>>>Main --- Snapshot +++capturing Snapshot of Main loading 1`] = `
+<div
+  className="content"
+>
+  <div>
+    Loading data, please wait...
+  </div>
+</div>
+`;
+
+exports[`>>>Main --- Snapshot +++capturing Snapshot of Main with error 1`] = `
+<div
+  className="content"
+>
+  <div>
+    Failed to get data, please try again later.
+  </div>
+</div>
+`;
