@@ -2,10 +2,10 @@
 
 exports[`>>>Autocomplete --- Snapshot +++capturing Snapshot of AutocompleteInput 1`] = `
 <div
-  className="auto-complete-wrapper"
+  className="autocomplete-wrapper"
 >
   <input
-    className="auto-complete-field"
+    className="autocomplete-field"
     onBlur={[Function]}
     onChange={[Function]}
     onFocus={[Function]}

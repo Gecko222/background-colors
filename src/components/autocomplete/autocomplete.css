@@ -1,13 +1,13 @@
-.auto-complete-wrapper {
+.autocomplete-wrapper {
 	align-self: center;
 	margin: 5px;
 }
 
-.auto-complete-field {
+.autocomplete-field {
 	border: 1px solid #000;
 }
 
-.auto-complete-list {
+.autocomplete-list {
 	border-radius: 3px;
 	box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
 	background: rgba(255, 255, 255, 0.9);
@@ -18,9 +18,9 @@
 	max-height: 100px;
 }
 
-.auto-complete-item {
+.autocomplete-item {
 	cursor: default;
 }
-.auto-complete-item-selected {
+.autocomplete-item-selected {
 	background-color: lightgray;
 }

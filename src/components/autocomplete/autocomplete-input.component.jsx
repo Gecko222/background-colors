@@ -21,15 +21,15 @@ export class AutocompleteInput extends Component {
 	 * @return {ReactElement}
 	 */
 	render() {
-		return <input
-			className="auto-complete-field"
+		return (<input
+			className="autocomplete-field"
 			onFocus={() => this._onFocus()}
 			onBlur={() => this._onBlur()}
 			ref={this.input}
 			value={this.props.input}
 			onChange={event => this._onChange(event)}
 			onKeyDown={event => this._onKeyDown(event)}
-		/>;
+		/>);
 	}
 	/**
 	 * on input change

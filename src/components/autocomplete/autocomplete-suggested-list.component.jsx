@@ -23,9 +23,9 @@ export class AutocompleteSuggestedList extends Component {
 			return null;
 		}
 
-		return <div	className="auto-complete-list">
-			{ this._getItems() }
-		</div>;
+		return (<div className="autocomplete-list">
+			{this._getItems()}
+		</div>);
 	}
 
 	/**
@@ -46,17 +46,17 @@ export class AutocompleteSuggestedList extends Component {
 			this.props.filteredItems,
 			(item, key) => {
 				const selected = this.props.selected === key ?
-					'auto-complete-item-selected' : '';
+					'autocomplete-item-selected' : '';
 
-				return <div
-					className={`auto-complete-item ${selected}`}
+				return (<div
+					className={`autocomplete-item ${selected}`}
 					key={key}
 					onMouseDown={() => this.props.clickItem(item)}
 					onMouseEnter={() => this.props.selectItem(key)}
 					ref= {item => this.itemsRefs[key] = item}
 				>
-					{ item }
-				</div>;
+					{item}
+				</div>);
 			}
 		);
 	}

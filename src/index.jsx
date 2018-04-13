@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
-import './index.html';
-
 import reducers from './reducers';
 import Main from './components/main/main.component';
 
@@ -24,6 +22,6 @@ const store = createStore(reducers,
 );
 
 ReactDOM.render(
-  <Provider store={ store }><Main /></Provider>,
+  <Provider store={store}><Main /></Provider>,
   document.getElementById('root')
 );

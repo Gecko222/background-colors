@@ -36,7 +36,7 @@ export class Autocomplete extends Component {
 	 * @return {ReactElement}
 	 */
 	render() {
-		return <div className="auto-complete-wrapper">
+		return <div className="autocomplete-wrapper">
 			<AutocompleteInput />
 			<AutocompleteSuggestedList />
 		</div>;

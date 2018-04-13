@@ -14,12 +14,12 @@ export class AcceptButton extends Component {
 	 * @return {ReactElement}
 	 */
 	render() {
-		return <button
+		return (<button
 			className="accept-button"
 			onClick={() => this._onClick()}
 		>
 			Accept
-		</button>;
+		</button>);
 	}
 
 	/**

@@ -101,7 +101,7 @@ describe('>>>Autocomplete --- connected', () => {
 				<AutocompleteSuggestedListConnected/>
 			</Provider>
 		);
-		const itemsList = wrapper.find('.auto-complete-item');
+		const itemsList = wrapper.find('.autocomplete-item');
 		const item1 = itemsList.at(0);
 		const item2 = itemsList.at(1);
 
@@ -134,7 +134,7 @@ describe('>>>Autocomplete --- connected', () => {
 				<AutocompleteSuggestedListConnected/>
 			</Provider>
 		);
-		const itemsList = wrapper.find('.auto-complete-item');
+		const itemsList = wrapper.find('.autocomplete-item');
 		const item1 = itemsList.at(0);
 		const item2 = itemsList.at(1);
 

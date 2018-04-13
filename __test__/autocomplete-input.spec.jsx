@@ -60,7 +60,7 @@ describe('>>>AutocompleteInput', () => {
 		const dispatchSpy = sinon.spy(store, 'dispatch');
 		const wrapper = mount( <Provider store={store}><AutocompleteInput /></Provider> );
 
-		wrapper.find('.auto-complete-field').simulate('focus');
+		wrapper.find('.autocomplete-field').simulate('focus');
 
 		expect(dispatchSpy.calledWith({
 			type: AC_SET_FOCUS,
@@ -88,7 +88,7 @@ describe('>>>AutocompleteInput', () => {
 		const dispatchSpy = sinon.spy(store, 'dispatch');
 		const wrapper = mount( <Provider store={store}><AutocompleteInput /></Provider> );
 
-		wrapper.find('.auto-complete-field').simulate('blur');
+		wrapper.find('.autocomplete-field').simulate('blur');
 
 		expect(dispatchSpy.calledWith({
 			type: AC_SET_FOCUS,
@@ -116,7 +116,7 @@ describe('>>>AutocompleteInput', () => {
 		const store = mockStore(initialState);
 		const dispatchSpy = sinon.spy(store, 'dispatch');
 		const wrapper = mount( <Provider store={store}><AutocompleteInput /></Provider> );
-		const input = wrapper.find('.auto-complete-field');
+		const input = wrapper.find('.autocomplete-field');
 
 		input.simulate('focus');
 		input.simulate('blur');
@@ -146,7 +146,7 @@ describe('>>>AutocompleteInput', () => {
 		const store = mockStore(initialState);
 		const dispatchSpy = sinon.spy(store, 'dispatch');
 		const wrapper = mount( <Provider store={store}><AutocompleteInput /></Provider> );
-		const input = wrapper.find('.auto-complete-field');
+		const input = wrapper.find('.autocomplete-field');
 
 		input.simulate('change');
 
@@ -177,7 +177,7 @@ describe('>>>AutocompleteInput', () => {
 		const store = mockStore(initialState);
 		const dispatchSpy = sinon.spy(store, 'dispatch');
 		const wrapper = mount( <Provider store={store}><AutocompleteInput /></Provider> );
-		const input = wrapper.find('.auto-complete-field');
+		const input = wrapper.find('.autocomplete-field');
 
 		input.simulate('keydown', { key: 'Enter' });
 
@@ -210,7 +210,7 @@ describe('>>>AutocompleteInput', () => {
 		const store = mockStore(initialState);
 		const dispatchSpy = sinon.spy(store, 'dispatch');
 		const wrapper = mount( <Provider store={store}><AutocompleteInput /></Provider> );
-		const input = wrapper.find('.auto-complete-field');
+		const input = wrapper.find('.autocomplete-field');
 
 		input.simulate('keydown', { key: 'ArrowUp' });
 
@@ -237,7 +237,7 @@ describe('>>>AutocompleteInput', () => {
 		const store = mockStore(initialState);
 		const dispatchSpy = sinon.spy(store, 'dispatch');
 		const wrapper = mount( <Provider store={store}><AutocompleteInput /></Provider> );
-		const input = wrapper.find('.auto-complete-field');
+		const input = wrapper.find('.autocomplete-field');
 
 		input.simulate('keydown', { key: 'ArrowDown' });
 

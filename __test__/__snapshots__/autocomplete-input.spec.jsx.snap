@@ -2,7 +2,7 @@
 
 exports[`>>>AutocompleteInput --- Snapshot +++capturing Snapshot of AutocompleteInput 1`] = `
 <input
-  className="auto-complete-field"
+  className="autocomplete-field"
   onBlur={[Function]}
   onChange={[Function]}
   onFocus={[Function]}

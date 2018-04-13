@@ -4,17 +4,17 @@ exports[`>>>AutocompleteSuggestedList --- Snapshot +++capturing Snapshot of Auto
 
 exports[`>>>AutocompleteSuggestedList --- Snapshot +++capturing Snapshot of AutocompleteSuggestedList on focus 1`] = `
 <div
-  className="auto-complete-list"
+  className="autocomplete-list"
 >
   <div
-    className="auto-complete-item auto-complete-item-selected"
+    className="autocomplete-item autocomplete-item-selected"
     onMouseDown={[Function]}
     onMouseEnter={[Function]}
   >
     Test
   </div>
   <div
-    className="auto-complete-item "
+    className="autocomplete-item "
     onMouseDown={[Function]}
     onMouseEnter={[Function]}
   >
