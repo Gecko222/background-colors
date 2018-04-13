@@ -1,7 +1,7 @@
 # Background Colors
 
 
-[![license:mit](https://img.shields.io/apm/l/vim-mode.svg)](https://github.com/Gecko222/background-colors)
+[![license:MIT](https://img.shields.io/apm/l/vim-mode.svg)](https://github.com/Gecko222/background-colors)
 [![Build Status](https://travis-ci.org/Gecko222/background-colors.svg?branch=master)](https://travis-ci.org/Gecko222/background-colors)
 
 ## Demo
@@ -38,8 +38,18 @@ Node.js, yarn
 > yarn test
 ```
 
+Generate coverage:
+```
+> yarn test --coverage
+```
+
 ### Eslint
 
 ```
 > yarn lint
+```
+
+Autofix:
+```
+> yarn lint --fix
 ```
